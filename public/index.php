@@ -7,7 +7,7 @@ $router->post('/api/v1/test', function () {
     $request = RequestService::receiveRequest();
     $file = RequestService::makeFile($request);
     $body = RequestService::makeRequest($file, "Teste de envio de requisição");
-    RequestService::sendRequestToDiscord(getenv('TEST_DISCORD_WEBHOOK'), $body);
+    RequestService::sendRequestToDiscord($_ENV['TEST_DISCORD_WEBHOOK'], $body);
 });
 
 $router->post('/api/v1/galaxpay', function () {
@@ -15,7 +15,7 @@ $router->post('/api/v1/galaxpay', function () {
     $request = RequestService::receiveRequest();
     $file = RequestService::makeFile($request);
     $body = RequestService::makeRequest($file, "Webhook - Galaxpay");
-    RequestService::sendRequestToDiscord(getenv('GALAXPAY_DISCORD_WEBHOOK'), $body);
+    RequestService::sendRequestToDiscord($_ENV['GALAXPAY_DISCORD_WEBHOOK'], $body);
 });
 
 $router->post('/api/v1/omie', function () {
