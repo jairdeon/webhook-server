@@ -21,7 +21,8 @@ Ainda é um projeto inicial, e devo melhorar com o tempo.
 ### Como consigo realizar um teste?
 - Crie um arquivo na raiz do projeto com o nome .env, e crie a variável ```TEST_DISCORD_WEBHOOK``` [apontando para o link de destino do seu canal do discord](https://support.discord.com/hc/pt-br/articles/228383668-Usando-Webhooks)
 - No arquivo index.php, na pasta public temos uma rota apontando para /api/v1/test
-Utilizando um serviço de envio POST (como o postman por exemplo, faça um envido do tipo POST de qualquer JSON)
+- Utilizando um serviço de envio POST (como o postman por exemplo, faça um envido do tipo POST de qualquer JSON)
+
 ```json
 {
    "messageId": "adbddas0-ds91-1846-13a0-adb2108ede",
