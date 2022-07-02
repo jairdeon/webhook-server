@@ -8,9 +8,6 @@ require_once __DIR__ . '/../../src/Router/Router.php';
 require_once __DIR__ . '/../../src/Service/RequestService.php';
 require __DIR__ . '/../../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__FILE__, 3));
-$dotenv->load();
-
 $router = new \Router\Router();
 $router->set404(function () {
     header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../src/app/app.php';
+require_once __DIR__ . '/../src/App/app.php';
 
 $router = new \Router\Router();
 $router->post('/api/v1/test', function () {
