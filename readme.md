@@ -1,9 +1,10 @@
 # Proposta
 Atualmente, em alguns sistemas que estou trabalhando, preciso realizar algumas integrações com webhooks.
 
-Um webhook, é uma notificação enviada por um servidor, para que outros serviços que dele dependem, possam realizar ações automáticas para manter a sincronização de dados, porém, e muitos casos, o webhook necessita de um serviço online para receber estas chamadas.
+Um webhook, é uma notificação enviada por um servidor, para que outros serviços que dele dependem, possam realizar ações automáticas para manter a sincronização de dados, porém, em muitos casos, o webhook necessita de um serviço online para receber estas chamadas.
 
-A proposta desta solução, é que um serviço realizar uma requisição do tipo POST para uma das rotas cadastradas na aplicação, o sistema possa criar um arquivo armazenando um json com seus valores, e em seguida enviar para o discord com o arquivo da requisição em anexo. Desta forma, será possível receber as notificações dos servidores e realizar testes locais até que seja possível subir sua aplicação com os parâmetros corretos tratando os retornos destas requisições.
+A proposta desta solução, é que um serviço realizar uma requisição do tipo POST para uma das rotas cadastradas na aplicação, o sistema possa criar um arquivo armazenando um json com seus valores, e em seguida enviar para o discord com o arquivo da requisição em anexo.
+Desta forma, após subir esta aplicação em um servidor online, será possível receber as notificações dos servidores e realizar testes locais até que seja possível subir sua aplicação em produção com os parâmetros corretos tratando os retornos destas requisições.
 
 Ainda é um projeto inicial, e devo melhorar com o tempo.
 
