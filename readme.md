@@ -9,7 +9,7 @@ Desta forma, após subir esta aplicação em um servidor online, será possível
 Ainda é um projeto inicial, e devo melhorar com o tempo.
 
 ### O que preciso para começar?
-1. Uma aplicação PHP > 8
+1. Uma aplicação PHP > 7.4
 2. Composer
 3. Um servidor web (apache ou nginx)
 
