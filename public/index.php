@@ -35,6 +35,43 @@ $router->get('/', function () {
     die();
 });
 
+$router->post('/api/v1/test', function () {
+    header('Content-Type: application/json');
+    $request = json_decode(file_get_contents("php://input"), true);
+    $request = json_encode($request, JSON_PRETTY_PRINT);
+
+    $finalFileName = 'requisition.json';
+    $requisitionFile = fopen($finalFileName, "w") or die("Unable to open file!");
+    fwrite($requisitionFile, $request);
+    fclose($requisitionFile);
+
+    $fileName = $_SERVER['DOCUMENT_ROOT'] . '/' . $finalFileName;
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $finfo = finfo_file($finfo, $fileName);
+    $cFile = new CURLFile($fileName, $finfo, $finalFileName);
+
+    $body = [
+        "username" => "Webhooks - TEST",
+        "content" => "Teste de envio de requisição",
+        "tts" => "false",
+        "file" => $cFile
+    ];
+
+    $curl = curl_init($_ENV['TEST_DISCORD_WEBHOOK']);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 5);
+    curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 5);
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: multipart/form-data'));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
+
+    curl_exec($curl);
+    curl_close($curl);
+    unlink($finalFileName);
+});
+
 $router->post('/api/v1/webhook-omie', function () {
     header('Content-Type: application/json');
     $request = json_decode(file_get_contents("php://input"), true);
