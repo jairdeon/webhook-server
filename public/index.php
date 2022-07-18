@@ -38,4 +38,12 @@ $router->post('/api/v1/omie', function () {
     RequestService::sendRequestToDiscord($_ENV['OMIE_DISCORD_WEBHOOK'], $body);
 });
 
+$router->post('/api/v1/pagseguro', function () {
+    header('Content-Type: application/json');
+    $request = RequestService::receiveRequest();
+    $file = RequestService::makeFile($request);
+    $body = RequestService::makeRequest($file, "Teste de envio de requisição do Pagseguro");
+    RequestService::sendRequestToDiscord($_ENV['PAGSEGURO_DISCORD_WEBHOOK'], $body);
+});
+
 $router->run();
